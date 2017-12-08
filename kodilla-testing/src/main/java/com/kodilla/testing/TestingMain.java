@@ -7,8 +7,8 @@ public class TestingMain {
 
         Calculator calculator = new Calculator();
 
-        int result = calculator.addMethod();
-        int result2 = calculator.substractMethod();
+        int result = calculator.add(5, 5);
+        int result2 = calculator.substract(15,1);
 
         if (result == 5) {
             System.out.println("Test Ok");

@@ -3,22 +3,14 @@ package com.kodilla.testing.collection;
 import java.util.ArrayList;
 import java.util.Random;
 
-     class OddNumbersExterminator {
-             ArrayList<Integer> numbers = new ArrayList<>();
-
-
-            exterminator(ArrayList<Integer> numbers) {
-            this.numbers = numbers;
+class OddNumbersExterminator {
+    public ArrayList<Integer> exterminate(ArrayList<Integer> list) {
+        ArrayList<Integer> oddList = new ArrayList<>();
+        for(Integer item: list) {
+            if (item % 2 == 0) {
+                oddList.add(item);
             }
-            public ArrayList<Integer> getNumbers(){
-                return this.numbers;
-            }
-         }
-
-     /*      Random rng = new Random();
-             ArrayList<Integer> numbers = new ArrayList<Integer>();
-             for (int i = 0; i < 50; i++) {
-                 numbers.add(rng.nextInt(99));
-             }
-             System.out.println("Wielkosc listy numbers " + numbers.size());
-             */
+        }
+        return oddList;
+    }
+}

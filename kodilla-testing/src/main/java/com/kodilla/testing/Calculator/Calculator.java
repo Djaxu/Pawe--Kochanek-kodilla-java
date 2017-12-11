@@ -16,5 +16,7 @@ public class Calculator {
         int result=calculator.add(5,5);
         int subresult=calculator.substract(15,1);
         System.out.println("wynik dodawania " + result+ "\n" + "wynik odejmowania " +subresult);
+
+
     }
 }

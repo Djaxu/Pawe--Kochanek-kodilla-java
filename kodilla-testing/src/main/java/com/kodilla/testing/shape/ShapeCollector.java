@@ -24,7 +24,7 @@ public class ShapeCollector {
 
     public Shape getShape(int shapesNumber){
         Shape theNumber = null;
-        if(shapesNumber>0 && shapesNumber < shapes.size()){
+        if(shapesNumber>=0 && shapesNumber < shapes.size()){
             theNumber = shapes.get(shapesNumber);
         }
         return  theNumber;

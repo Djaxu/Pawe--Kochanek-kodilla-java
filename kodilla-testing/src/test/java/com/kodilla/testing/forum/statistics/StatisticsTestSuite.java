@@ -86,15 +86,28 @@ public class StatisticsTestSuite {
         StatisticsCheck statisticsCheck = new StatisticsCheck();
         Integer commentsCount = 50;
         Integer postsCount = 10;
-        Integer CommentsAveragePerPost = null;
-        if(commentsCount>postsCount){
-            CommentsAveragePerPost = commentsCount/postsCount;
-        }
-        when(mockStatistics.commentsCount()).thenReturn(CommentsAveragePerPost);
+        when(mockStatistics.commentsCount()).thenReturn(commentsCount);
+        when(mockStatistics.postsCount()).thenReturn(postsCount);
         //When
         statisticsCheck.calculateAdvStatistics(mockStatistics);
         //Then
         Assert.assertEquals(5,statisticsCheck.getCommentsAveragePerPost());
+
+    }
+
+    @Test
+    public void testMorePostsThenComments(){
+        //Given
+        Statistics mockStatistics = mock(Statistics.class);
+        StatisticsCheck statisticsCheck = new StatisticsCheck();
+        Integer commentsCount = 5;
+        Integer postsCount = 100;
+        when(mockStatistics.commentsCount()).thenReturn(commentsCount);
+        when(mockStatistics.postsCount()).thenReturn(postsCount);
+        //When
+        statisticsCheck.calculateAdvStatistics(mockStatistics);
+        //Then
+        Assert.assertEquals(0,statisticsCheck.getCommentsAveragePerPost());
 
     }
 

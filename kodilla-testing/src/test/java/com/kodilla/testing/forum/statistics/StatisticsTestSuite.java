@@ -116,15 +116,16 @@ public class StatisticsTestSuite {
         Statistics mockStatistics = mock(Statistics.class);
         StatisticsCheck statisticsCheck = new StatisticsCheck();
         Integer commentsCount = 50;
-        ArrayList userList = new ArrayList();
+        ArrayList<String> userList = new ArrayList<String>();
         userList.add("Pawel");
+        userList.add("Michal");
         when(mockStatistics.usersNames()).thenReturn(userList);
         when(mockStatistics.commentsCount()).thenReturn(commentsCount);
 
         //When
         statisticsCheck.calculateAdvStatistics(mockStatistics);
         //Then
-        Assert.assertEquals(50, statisticsCheck.getCommentsAveragePerUser());
+        Assert.assertEquals(25, statisticsCheck.getCommentsAveragePerUser());
 
     }
     @Test

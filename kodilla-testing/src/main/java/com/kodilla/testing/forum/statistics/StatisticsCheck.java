@@ -17,7 +17,7 @@ public class StatisticsCheck {
             this.postsAveragePerUser= posts / countOfUsers;
             this.commentsAveragePerUser= comments / countOfUsers;
         }
-        if(comments>0){
+        if(comments>0&&posts>0){
             this.commentsAveragePerPost = comments/ posts;
         }
 

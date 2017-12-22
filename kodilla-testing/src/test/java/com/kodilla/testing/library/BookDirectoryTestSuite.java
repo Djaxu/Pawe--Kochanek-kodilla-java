@@ -83,24 +83,45 @@ public class BookDirectoryTestSuite {
     }
 
     @Test
-    public void testUserBooks0(){
+    public void testUserHave0Books(){
         //Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-        List<LibraryUser> userList = new ArrayList<>();
         LibraryUser user1 = new LibraryUser("Pawel", "Pawelski", "Pesel");
-        userList.add(user1);
         List<Book> resultListOfBooks0= new ArrayList<>();
-        List<Book> resultOf1Books = generateListOfNBooks(1);
-        List<Book> resultOf5Books = generateListOfNBooks(5);
         when(libraryDatabaseMock.listBooksInHandsOf(user1)).thenReturn(resultListOfBooks0);
+        //When
+        List theListOfBooks = bookLibrary.listBooksInHandsOf(user1);
+        //Then
+        Assert.assertEquals(1, theListOfBooks.size());
+    }
+    @Test
+    public void testUserHave1Book(){
+        //Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        LibraryUser user1 = new LibraryUser("Pawel", "Pawelski", "Pesel");
+        List<Book> resultOf1Books = generateListOfNBooks(1);
         when(libraryDatabaseMock.listBooksInHandsOf(user1)).thenReturn(resultOf1Books);
+        //When
+        List theListOfBooks = bookLibrary.listBooksInHandsOf(user1);
+        //Then
+        Assert.assertEquals(1, theListOfBooks.size());
+
+    }
+
+    @Test
+    public void testUserHave5Books(){
+        //Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        LibraryUser user1 = new LibraryUser("Pawel", "Pawelski", "Pesel");
+        List<Book> resultOf5Books = generateListOfNBooks(5);
         when(libraryDatabaseMock.listBooksInHandsOf(user1)).thenReturn(resultOf5Books);
         //When
         List theListOfBooks = bookLibrary.listBooksInHandsOf(user1);
         //Then
-        Assert.assertEquals(0, theListOfBooks.size());
-        Assert.assertEquals(1, theListOfBooks.size());
         Assert.assertEquals(5, theListOfBooks.size());
+
     }
 }

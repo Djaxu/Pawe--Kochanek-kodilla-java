@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -18,7 +19,7 @@ public class ArrayOperationsTestSuite {
             numbers.add(i);
         }
         //When
-        double result= ArrayOperations::getAverage;
+        OptionalDouble result= ArrayOperations.getAverage();
         //Then
         Assert.assertEquals(9.5, result);
 

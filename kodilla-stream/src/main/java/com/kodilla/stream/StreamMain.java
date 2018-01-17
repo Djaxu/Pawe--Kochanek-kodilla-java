@@ -1,4 +1,4 @@
-package com.kodilla.stream;
+/*package com.kodilla.stream;
 
 
 
@@ -7,8 +7,6 @@ package com.kodilla.stream;
 
 
         import java.time.LocalDate;
-        import java.time.Month;
-        import java.time.Period;
         import java.time.temporal.ChronoUnit;
         import java.util.Map;
         import java.util.stream.Collectors;
@@ -34,4 +32,42 @@ public class StreamMain {
 
     }
 }
+*/
+package com.kodilla.stream;
 
+import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.iterate.NumbersGenerator;
+import com.kodilla.stream.lambda.ExecuteSaySomething;
+import com.kodilla.stream.lambda.Executor;
+import com.kodilla.stream.lambda.ExpressionExecutor;
+import com.kodilla.stream.lambda.Processor;
+import com.kodilla.stream.reference.FunctionalCalculator;
+
+public class StreamMain {
+    public static void main(String[] args) {
+        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
+
+        System.out.println("Calculating expressions with lambdas");
+        expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
+        expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
+        expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
+        expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
+
+        System.out.println("Calculating expressions with method references");
+        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::multiplyAByB);
+        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
+        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
+        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
+
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        NumbersGenerator.generateEven(20);
+
+        PoemBeautifier poemBeautifier = new PoemBeautifier();
+
+        poemBeautifier.beautify("Teskt do Ozdobienia",(a)-> a.toUpperCase());
+        poemBeautifier.beautify("TEKST do Ozdobienia nr 2",(a)-> a.toLowerCase());
+        poemBeautifier.beautify("Teskt do Ozdobienia nr 3",(a)-> "ABC "+a +" ABC");
+        poemBeautifier.beautify("Teskt do Ozdobienia nr 4",(a)-> "***"+a.toUpperCase()+"***");
+
+    }
+}

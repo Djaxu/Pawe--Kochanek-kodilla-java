@@ -12,19 +12,25 @@ import java.util.stream.Stream;
 public class ArrayOperationsTestSuite {
 
     @Test
-    public void testGetAverage(){
+    public void testGetAverage() {
         //Given
-        List<Integer> numbers = new ArrayList<>();
-        for(int i=0;i<20;i++){
-            numbers.add(i);
-        }
+        int[] numbrsArray = new int[10];
+        numbrsArray[0] = 7;
+        numbrsArray[1] = 78;
+        numbrsArray[2] = 56;
+        numbrsArray[3] = 45;
+        numbrsArray[4] = 96;
+        numbrsArray[5] = 55;
+        numbrsArray[6] = 12;
+        numbrsArray[7] = 1;
+        numbrsArray[8] = 3;
+        numbrsArray[9] = 99;
+
+
         //When
-        OptionalDouble result= ArrayOperations.getAverage();
+        double result = ArrayOperations.getAverage(numbrsArray);
         //Then
-        Assert.assertEquals(9.5, result);
-
-
-
-
+        Assert.assertEquals(45.2, result,0.001);
     }
+
 }

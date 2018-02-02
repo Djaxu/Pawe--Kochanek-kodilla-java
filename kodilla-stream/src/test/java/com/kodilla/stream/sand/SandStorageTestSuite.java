@@ -33,12 +33,12 @@ public class SandStorageTestSuite {
         continents.add(new Africa());
 
         //When
-        BigDecimal totalSans = continents.stream()
+        BigDecimal totalSand = continents.stream()
                 .map(SandStorage::getSandBeansQuantity)
                 .reduce(BigDecimal.ZERO, (sum, current)-> sum = sum.add(current));
 
         //Then
         BigDecimal expectedSand = new BigDecimal("211111110903703703670");
-        Assert.assertEquals(totalSans, expectedSand);
+        Assert.assertEquals(totalSand, expectedSand);
     }
 }

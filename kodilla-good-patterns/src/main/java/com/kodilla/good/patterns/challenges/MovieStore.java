@@ -28,7 +28,5 @@ class MovieStore {
 
         return booksTitlesWithTranslations;
 
-
-
     }
 }

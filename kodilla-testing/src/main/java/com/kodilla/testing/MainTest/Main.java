@@ -17,7 +17,7 @@ public class Main {
     public static long getCountLength3UsingJava7(List<String> lenghtList){
         int tryCounter=0;
         for (String temp: lenghtList){
-            if (temp.length()>2 && temp.length()<4){
+            if (temp.length() ==3){
                 tryCounter++;
             }
         }

@@ -13,6 +13,8 @@ public class FlightSearch {
         flightMap.put("Buenos Aires",true);
         if(flightMap.containsKey(flight)){
             System.out.println("Polaczenie mozeliwe");
+        } else {
+            throw new RouteNotFoundException("Brak Polaczenia");
         }
         return flightMap;
 

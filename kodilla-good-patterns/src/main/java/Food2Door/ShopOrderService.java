@@ -14,6 +14,8 @@ public class ShopOrderService {
     }
 
     public ShopDto process(final ShopOrder shopOrder) {
+        System.out.println("Zamówienie przygotowane "+ shopOrder.getUser());
             return new ShopDto(shopOrder.getUser());
+
         }
     }

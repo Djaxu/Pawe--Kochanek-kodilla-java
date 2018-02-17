@@ -13,9 +13,12 @@ public class ShopOrderService {
         this.glutenFreeShop = glutenFreeShop;
     }
 
-    public ShopDto process(final ShopOrder shopOrder) {
-        System.out.println("Zamówienie przygotowane "+ shopOrder.getUser());
-            return new ShopDto(shopOrder.getUser());
+    public boolean process(final OrderDto orderDto) {
+        if (orderDto.getShop()==null){
+            System.out.println("nie znalezionio opdpowiedniego sklepu");
+            return false;
+        }
+            return orderDto.getShop().process(new ShopDto(orderDto.getShopProduct(),orderDto.getProductQuantity()));
 
         }
     }

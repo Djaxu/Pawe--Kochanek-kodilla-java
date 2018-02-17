@@ -1,14 +1,19 @@
 package Food2Door;
 
 public class ShopDto {
-    public User user;
+    public String shopProduct;
+    public int productQuantity;
 
-    public ShopDto(final User user) {
-        this.user = user;
+    public ShopDto(String shopProduct, int productQuantity) {
+        this.shopProduct = shopProduct;
+        this.productQuantity = productQuantity;
     }
 
-    public User getUser() {
-        return user;
+    public String getShopProduct() {
+        return shopProduct;
     }
 
+    public int getProductQuantity() {
+        return productQuantity;
+    }
 }

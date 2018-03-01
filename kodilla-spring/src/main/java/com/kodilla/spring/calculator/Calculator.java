@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class Calculator {
     @Autowired
     private Display display;
-
+    // alternatywa zamiast linijki wyzej
     /*public Calculator(Display display) {
         this.display = display;
     }*/

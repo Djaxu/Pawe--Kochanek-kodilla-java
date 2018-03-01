@@ -1,11 +1,12 @@
 package com.kodilla.testing.MainTest;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
-
+@Ignore
 public class MainTestSuite {
     @Test
     public void testCountEmptyStringUsingJava7() {
@@ -50,6 +51,7 @@ public class MainTestSuite {
     }
 
     @Test
+    @Ignore
     public void testSquares() {
         //given
         List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5);

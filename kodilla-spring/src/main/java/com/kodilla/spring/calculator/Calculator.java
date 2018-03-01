@@ -9,9 +9,9 @@ public class Calculator {
     @Autowired
     private Display display;
 
-    public Calculator(Display display) {
+    /*public Calculator(Display display) {
         this.display = display;
-    }
+    }*/
     public Double add(double a, double b){
         display.displayValue(a+b);
         return a+b;

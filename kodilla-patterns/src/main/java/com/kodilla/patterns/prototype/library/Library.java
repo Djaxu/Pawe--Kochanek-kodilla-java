@@ -33,6 +33,7 @@ public final class Library extends Prototype {
         cloneLibrary.books = new HashSet<>();
         for (Book book : books ){
             Book clonedBook = new Book(book.getTitle(),book.getAuthor(),book.getPublicationDate());
+            cloneLibrary.getBooks().add(clonedBook);
         }
         return cloneLibrary;
     }

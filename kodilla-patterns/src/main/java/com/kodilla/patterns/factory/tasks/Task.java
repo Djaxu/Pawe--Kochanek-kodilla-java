@@ -2,7 +2,8 @@ package com.kodilla.patterns.factory.tasks;
 
 public interface Task {
 
-   String executeTask();
+   void executeTask();
    String getTaskName();
    Boolean isTaskExecuted();
+   String getWhatTo();
 }

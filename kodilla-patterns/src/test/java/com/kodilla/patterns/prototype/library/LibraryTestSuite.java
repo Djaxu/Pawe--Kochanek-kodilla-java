@@ -39,12 +39,11 @@ public class LibraryTestSuite {
             System.out.println(e);
         }
         //When
-        clonedLibrary.getBooks().remove(book4);
         //Then
         System.out.println(booksSet);
         Assert.assertEquals(4,booksSet.getBooks().size());
         System.out.println(clonedLibrary);
-        Assert.assertEquals(3,clonedLibrary.getBooks().size());
+        Assert.assertEquals(4,clonedLibrary.getBooks().size());
         System.out.println(deepClonedLibrary);
         Assert.assertEquals(4,deepClonedLibrary.getBooks().size());
     }

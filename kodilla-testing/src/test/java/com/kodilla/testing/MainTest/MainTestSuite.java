@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
-@Ignore
 public class MainTestSuite {
     @Test
     public void testCountEmptyStringUsingJava7() {

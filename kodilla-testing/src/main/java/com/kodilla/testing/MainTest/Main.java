@@ -2,49 +2,67 @@ package com.kodilla.testing.MainTest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
     public static long getCountEmptyStringUsingJava7(List<String> stringList){
-        int counter=0;
-        for (String temp: stringList ){
-            if(temp.isEmpty()){
-                counter++;
-            }
-        }
-        return counter;
+        long result = stringList.stream()
+                .filter(n->n.isEmpty())
+                .count();
+        return result;
     }
     public static long getCountLength3UsingJava7(List<String> lenghtList){
-        int tryCounter=0;
-        for (String temp: lenghtList){
-            if (temp.length() ==3){
-                tryCounter++;
-            }
-        }
-        return tryCounter;
+
+        long result = lenghtList.stream()
+                .filter(n->n.length()== 3)
+                .count();
+        return result;
     }
     public static List<String> deleteEmptyStringsUsingJava7(List<String> deletedList){
-        return new ArrayList<>();
+        List<String> result = deletedList.stream()
+                .filter(n->n.length() >0)
+                .collect(Collectors.toList());
+        return result;
     }
     public static String getMergedStringUsingJava7(List<String> mergedList,String name){
-        return "";
+       String result = mergedList.stream()
+               .filter(n->n.length() >0)
+               .collect(Collectors.joining(name));
+       return result;
     }
     public static List<Integer> getSquares(List<Integer> squareList){
-        return new ArrayList<>();
+        List<Integer> result = squareList.stream()
+                .distinct()
+                .map(n->n*n)
+                .collect(Collectors.toList());
+        return result;
+
     }
     public static Integer getMax(List<Integer> maxList){
-        return 9;
+        int result = maxList.stream()
+                .mapToInt(n->n)
+                .max()
+                .getAsInt();
+        return result;
     }
     public static Integer getMin(List<Integer> minList){
-        return 9;
+        int result = minList.stream()
+                .mapToInt(n->n)
+                .min()
+                .getAsInt();
+        return result;
     }
     public static Integer getSum(List<Integer> sumList){
-        return 9;
+        int result = sumList.stream()
+                .mapToInt(n->n)
+                .sum();
+        return result;
     }
-    public static Integer getAverage(List<Integer> sumList){
-        return 78;
+    public static Integer getAverage(List<Integer> avrList){
+        int result =(int) avrList.stream()
+                .mapToInt(n->n)
+                .average().getAsDouble();
+        return result;
     }
-
-
-
 }

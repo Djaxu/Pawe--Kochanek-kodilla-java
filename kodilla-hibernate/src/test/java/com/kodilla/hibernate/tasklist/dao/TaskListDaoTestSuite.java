@@ -43,7 +43,7 @@ public class TaskListDaoTestSuite {
         //When
         List<TaskList> readTasks = taskListDao.findByListName(LISTNAME);
         //Then
-        int id = taskList.getId();
+        int id = readTasks.get(0).getId();
         TaskList readTaskList = taskListDao.findOne(id);
         Assert.assertEquals(1,readTaskList.getId());
         //CleanUp

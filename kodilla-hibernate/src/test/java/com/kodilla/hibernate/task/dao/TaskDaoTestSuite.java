@@ -59,11 +59,9 @@ public class TaskDaoTestSuite {
         //Given
         Task task = new Task(DESCRIPTION, 30);
         task.setTaskFinancialDetails(new TaskFinancialDetails(new BigDecimal(120), false));
-        int duration = task.getDuration();
         //When
         taskDao.save(task);
-        List<Task> readTasks = taskDao.findByDuration(duration);
-        int id = readTasks.get(0).getId();;
+        int id = task.getId();
         //Then
         Assert.assertNotEquals(0,id);
         //CleanUp

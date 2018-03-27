@@ -15,9 +15,8 @@ public class Invoice {
     public Invoice(){
     }
 
-    public Invoice(String number, List<Item> items) {
+    public Invoice(String number) {
         this.number = number;
-        this.items = items;
     }
     @Id
     @GeneratedValue

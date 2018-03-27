@@ -10,41 +10,37 @@ import java.util.List;
 @Table(name ="ITEMS")
 public class Item {
     private int id;
-    private Product product;
-    private BigDecimal price;
+    private BigDecimal price = BigDecimal.ZERO;
     private int quantity;
-    private BigDecimal value;
+    private BigDecimal value = BigDecimal.ZERO;
     private Invoice invoice;
-    private List<Product> products = new ArrayList<>();
+    private Product product;
 
     public Item(){
     }
 
-    public Item(Product product, BigDecimal price, int quantity, BigDecimal value) {
-        this.product = product;
+    public Item(BigDecimal price, int quantity, BigDecimal value) {
         this.price = price;
         this.quantity = quantity;
         this.value = value;
     }
+
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ITEM_ID",unique = true)
+    @Column(name = "ID",unique = true)
     public int getId() {
         return id;
     }
-    @NotNull
     @Column(name = "PRICES")
     public BigDecimal getPrice() {
         return price;
     }
-    @NotNull
     @Column(name = "QUANTITY")
     public int getQuantity() {
         return quantity;
     }
-    @NotNull
-    @Column(name = "VALUES")
+    @Column(name = "VALUE")
     public BigDecimal getValue() {
         return value;
     }
@@ -55,16 +51,12 @@ public class Item {
     }
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PRODUCT_ID")
-    public List<Product> getProducts() {
-        return products;
+    public Product getProduct() {
+        return product;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 
     public void setPrice(BigDecimal price) {
@@ -83,7 +75,7 @@ public class Item {
         this.invoice = invoice;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

@@ -34,11 +34,6 @@ public class Item {
         return id;
     }
     @NotNull
-    @Column(name = "PRODUCTS")
-    public Product getProduct() {
-        return product;
-    }
-    @NotNull
     @Column(name = "PRICES")
     public BigDecimal getPrice() {
         return price;
@@ -53,12 +48,12 @@ public class Item {
     public BigDecimal getValue() {
         return value;
     }
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {
         return invoice;
     }
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PRODUCT_ID")
     public List<Product> getProducts() {
         return products;

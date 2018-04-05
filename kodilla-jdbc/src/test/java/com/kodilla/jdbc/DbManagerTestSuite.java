@@ -1,6 +1,7 @@
 package com.kodilla.jdbc;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.sql.ResultSet;
@@ -9,6 +10,7 @@ import java.sql.Statement;
 
 public class DbManagerTestSuite {
 
+    @Ignore
     @Test
     public void getConnection() throws SQLException {
         //Given
@@ -20,7 +22,7 @@ public class DbManagerTestSuite {
 
     }
 
-
+    @Ignore
     @Test
     public void testSelectUsers() throws SQLException {
         //Given
@@ -44,7 +46,7 @@ public class DbManagerTestSuite {
         Assert.assertEquals(5, counter);
 
     }
-
+    @Ignore
     @Test
     public void testSelectUsersAndPosts() throws SQLException{
         //Given
